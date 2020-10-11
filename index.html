@@ -1,0 +1,177 @@
+<html>
+<head>
+    <title>FalixNodes Software</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/76c26bec94.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div class="splash">
+  <div class="splashContent">
+    <div class="spin"></div>
+    <p>Loading content...</p>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tablink" onclick="openPage('Home', this, '#1F1F1F')" id="defaultOpen">FalixNodes</button>
+  <button class="tablink" onclick="openPage('Client', this, '#1F1F1F')">Client</button>
+  <button class="tablink" onclick="openPage('ControlPanel', this, '#1F1F1F')">Control Panel</button>
+  <button class="tablink" onclick="openPage('VPS', this, '#000000')">VPS Panel</button>
+  <div class="tabsRight">
+    <button class="tablink" onclick="openPage('About', this, '#6B54DA')"><i class="fas fa-question"></i></button>
+    <button class="tablink" onclick="openPage('Changelog', this, '#1F1F1F')"><i class="fas fa-book"></i></button>
+    <button class="tablink" onclick="openPage('Coins', this, '#1F1F1F')"><i class="fas fa-coins"></i></button>
+    <button class="tablink" onclick="openPage('Gear', this, '#1F1F1F')"><i class="fas fa-cog"></i></button>
+  </div>
+</div>
+
+<div style="overflow: hidden;" id="Home" class="tabcontent">
+  <div style="top: 0px;" class="inBody">
+    <div class="leftSide">
+      <h1>FalixNodes</h1>
+      <p>A quick access to your servers!</p>
+      <p id="version">v2.13</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  if (!localStorage.hideAlert) {
+  $(function() {
+    $("#dialog").dialog();
+  });
+} else {
+  $("#dialog").css("display", "none");
+}
+$(".yes").on("click", function() {
+  $("#dialog").dialog("close");
+});
+$(".no").on("click", function() {
+  localStorage.setItem('hideAlert', true);
+  $("#dialog").dialog("close");
+});
+</script>
+
+<div id="Client" class="tabcontent">
+  <webview id="falixnodes" src="https://client.FalixNodes.net"></webview>
+</div>
+
+<div id="ControlPanel" class="tabcontent">
+  <webview id="cp" src="https://gp.FalixNodes.net"></webview>
+</div>
+
+<div id="VPS" class="tabcontent">
+  <webview id="cp" src="https://vps.FalixNodes.net:4083"></webview>
+</div>
+
+<div id="About" class="tabcontent">
+  <webview src="https://help.falixnodes.xyz/" allowpopups></webview>
+</div>
+
+<div id="Coins" class="tabcontent">
+  <webview style="filter: invert(1) grayscale(1);" src="https://client.falixnodes.net/earn/arc"></webview>
+</div>
+
+<div id="Gear" class="tabcontent">
+  <div class="settings">
+    <h1>Modes</h1>
+    <a id="modes" href="#">Normal</a>
+    <a id="modes" href="./minimal/re.html">Minimal</a>
+  </div>
+</div>
+
+
+
+
+<div id="Changelog" class="tabcontent">
+    <div class="changelog">
+        <h1>Changelog</h1>
+        <h1>2.14</h1>
+        <ui>
+          <li>Software now has official domain on falixnodes.net</li>
+          <li>Live chat added app wide</li>
+          <li>New VPS tab added</li>
+        </ui>
+        <h1>2.13</h1>
+        <ui>
+          <li>Certains tabs won't load automatically by default, this is to save resources.</li>
+          <li>Fixed tutorial page.</li>
+        </ui>
+        <h1>2.12</h1>
+        <ui>
+          <li>Scrollbar themed</li>
+          <li>Added videos tab <i class="fas fa-video"></i></li>
+        </ui>
+        <h1>v2.11</h1>
+        <ui>
+          <li>Added splash screen, app does take a moment to load up all content.</li>
+        </ui>
+        <h1>v2.1</h1>
+        <ui>
+            <li>Auto update finally added</li>
+            <li>New Changelog tab <i class="fas fa-book"></i></li>
+            <li>Live Chat added <i class="fas fa-comment"></i></li>
+            <li>Help tab moved to right side as an icon <i class="fas fa-question"></i></li>
+            <li>Status page now as a filter, making the page darker</li>
+            <li>Setup file for Windows is now created with Advanced Installer(previous InstallForge)</li>
+            <li>Bug fix: When minimizing the application, it will no longer disappear from the taskbar and run in background.</li>
+        </ui>
+        <h1>v2.0</h1>
+        <ui>
+            <li>New Coins tab</li>
+            <li>New design</li>
+            <li>Splash screen removed</li>
+            <li>Uses system's native titlebar instead of custom titlebar</li>
+            <li>New help center</li>
+            <li>Setup file updated for Windows</li>
+            <li>Setup file updated for macOS</li>
+            <li>New install option for Linux</li>
+            <li>Icon now works properly on Windows</li>
+        </ui>
+    </div>
+</div>
+
+
+<div class="splashiOS">
+  <img src="https://raw.githubusercontent.com/FalixNodes-Software/FalixNodes-Software/master/Icon.png">
+  <i class="fa fa-circle-o-notch"></i>
+</div>
+<script>
+  var webview = document.getElementById('falixnodes');
+  webview.addEventListener('dom-ready', function () {
+  webview.insertCSS("body{background:#353535!important;color:#fff!important}::-webkit-scrollbar{width:1px!important}::-webkit-scrollbar-track{background:0 0!important}::-webkit-scrollbar-thumb{background:#6a5edc!important}::-webkit-scrollbar-thumb:hover{background:#6b5edc7a!important}.main-panel{background:#353535!important}.navbar.navbar-transparent{background-color:transparent!important;box-shadow:none!important;border-bottom:none!important}.navbar.navbar-transparent a:not(.dropdown-item):not(.btn){color:#fff!important}.off-canvas-sidebar[data-color=white]:after,.sidebar[data-color=white]:after{background:#1f1f1f!important}ul.nav li a{color:#fff!important;opacity:1!important}.card.card-user{background:0 0!important;box-shadow:none!important}.card-user .avatar{width:124px!important;height:124px!important;border:5px solid #353535!important;position:relative!important}.author h5{color:#fff!important}.alert.alert-primary{display:none!important}.card.card-stats{background:#1f1f1f!important;color:#fff!important}.card{background-color:#1f1f1f!important;color:#fff!important}.table>tbody>tr>td,.table>tbody>tr>th,.table>tfoot>tr>td,.table>tfoot>tr>th,.table>thead>tr>td,.table>thead>tr>th{border:none!important}.table-wrapper-scroll-y.servers-list-scrollbar{overflow:hidden!important;height:max-content!important}td{color:#fff!important}.table .btn{margin:3px!important}button.btn.btn-info.btn-sm{width:170px!important}.modal-content{background:#232323!important;border:none!important;position:fixed!important;top:50%!important;left:50%!important;transform:translate(-50%,-50%)!important;width:350px!important;height:max-content!important}.modal-header{border:none!important}.modal-footer{border:none!important}.modal-open .modal{overflow-x:hidden!important;overflow-y:auto!important;backdrop-filter:blur(10px) brightness(.7)!important}.off-canvas-sidebar,.sidebar{border:none!important}.card.card-stats{height:170px!important}")
+});
+</script>
+
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+document.getElementById("defaultOpen").click();
+</script>
+   
+<script>
+	document.addEventListener("keydown", function (e) {
+		if (e.which === 123) {
+			require('remote').getCurrentWindow().toggleDevTools();
+		} else if (e.which === 116) {
+			location.reload();
+		}
+	});
+</script>
+</body>
+</html>
