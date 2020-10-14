@@ -15,14 +15,13 @@
 </div>
 
 <div class="tabs">
-  <button class="tablink" onclick="openPage('Home', this, '#1F1F1F')" id="defaultOpen">FalixNodes</button>
-  <button class="tablink" onclick="openPage('Client', this, '#1F1F1F')">Client</button>
-  <button class="tablink" onclick="openPage('ControlPanel', this, '#1F1F1F')">Control Panel</button>
-  <button class="tablink" onclick="openPage('VPS', this, '#000000')">VPS Panel</button>
+  <button class="tablink" onclick="openPage('Home', this, '#1F1F1F')" id="defaultOpen">Dashboard</button>
+  <button id="client" class="tablink" onclick="openPage('Client', this, '#1F1F1F')">Client</button>
+  <button id="panel" class="tablink" onclick="openPage('ControlPanel', this, '#1F1F1F')">Control Panel</button>
   <div class="tabsRight">
-    <button class="tablink" onclick="openPage('About', this, '#6B54DA')"><i class="fas fa-question"></i></button>
-    <button class="tablink" onclick="openPage('Changelog', this, '#1F1F1F')"><i class="fas fa-book"></i></button>
-    <button class="tablink" onclick="openPage('Coins', this, '#1F1F1F')"><i class="fas fa-coins"></i></button>
+    <button id="helpce" class="tablink" onclick="openPage('About', this, '#6B54DA')"><i class="fas fa-question"></i></button>
+    <button id="yesmoniesgobrrrr" class="tablink" onclick="openPage('Coins', this, '#1F1F1F')"><i class="fas fa-coins"></i></button>
+    <button id="changle" class="tablink" onclick="openPage('Changelog', this, '#1F1F1F')"><i class="fas fa-book"></i></button>
     <button class="tablink" onclick="openPage('Gear', this, '#1F1F1F')"><i class="fas fa-cog"></i></button>
   </div>
 </div>
@@ -32,27 +31,19 @@
     <div class="leftSide">
       <h1>FalixNodes</h1>
       <p>A quick access to your servers!</p>
-      <p id="version">v2.13</p>
+      <p id="version">v2.15</p>
+    </div>
+    <div class="rightSide">
+      <div class="didyouknow">
+        <h1>Did you know:</h1>
+        <webview src="https://software.falixnodes.net/app/Android/didyouknow.html"></webview>
+      </div>
+      <div class="new">
+        <a href="./page/iOS-QR.html" target="_blank"><img src="https://i.imgur.com/kGyhZJS.png"></a>
+      </div>
     </div>
   </div>
 </div>
-
-<script>
-  if (!localStorage.hideAlert) {
-  $(function() {
-    $("#dialog").dialog();
-  });
-} else {
-  $("#dialog").css("display", "none");
-}
-$(".yes").on("click", function() {
-  $("#dialog").dialog("close");
-});
-$(".no").on("click", function() {
-  localStorage.setItem('hideAlert', true);
-  $("#dialog").dialog("close");
-});
-</script>
 
 <div id="Client" class="tabcontent">
   <webview id="falixnodes" src="https://client.FalixNodes.net"></webview>
@@ -60,10 +51,6 @@ $(".no").on("click", function() {
 
 <div id="ControlPanel" class="tabcontent">
   <webview id="cp" src="https://gp.FalixNodes.net"></webview>
-</div>
-
-<div id="VPS" class="tabcontent">
-  <webview id="cp" src="https://vps.FalixNodes.net:4083"></webview>
 </div>
 
 <div id="About" class="tabcontent">
@@ -76,18 +63,54 @@ $(".no").on("click", function() {
 
 <div id="Gear" class="tabcontent">
   <div class="settings">
-    <h1>Modes</h1>
-    <a id="modes" href="#">Normal</a>
-    <a id="modes" href="./minimal/re.html">Minimal</a>
+    <div class="warning2">
+      <h1>Warning</h1>
+      <p>The settings is uncompleted and some options may be buggy. Any settings you change will not be saved.</p>
+    </div>
+    <h1>Settings</h1>
+    <h2>Tabs</h2>
+    <p><button id="toggles" onclick="toggleClient()"></button>Client</p>
+    <p><button id="toggles" onclick="togglePanel()"></button>Control Panel</p>
+    <p style="filter: brightness(0.4); pointer-events: none;"><button id="toggles" onclick="toggleHelpCenter()"></button>Help Center</p>
+    <p style="filter: brightness(0.4); pointer-events: none;"><button id="toggles" onclick="toggleClient()"></button>Changelog</p>
+    <p style="filter: brightness(0.4); pointer-events: none;"><button id="toggles" onclick="toggleClient()"></button>FalixCoins</p>
   </div>
 </div>
 
+<script>
+  function toggleClient() {
+    var x = document.getElementById("client");
+    if (x.innerHTML === "Client") {
+      x.innerHTML = "";
+    } else {
+      x.innerHTML = "Client";
+    }
+  }
+  </script>
 
-
+<script>
+  function togglePanel() {
+    var x = document.getElementById("panel");
+    if (x.innerHTML === "Control Panel") {
+      x.innerHTML = "";
+    } else {
+      x.innerHTML = "Control Panel";
+    }
+  }
+  </script>
 
 <div id="Changelog" class="tabcontent">
     <div class="changelog">
         <h1>Changelog</h1>
+        <h1>2.15</h1>
+          <ui>
+            <li>Main tab renamed to "Dashboard"</li>
+            <li>Adde "Did you know" to Dashboard(carried over from Android app)</li>
+            <li>Revamped settings</li>
+            <li>New settings added for tabs</li>
+            <li>Removed VPS tab temporary(this might be back in later updates)</li>
+            <li>Re-ordered right side tabs. Changelog and FalixCoins have swapped spots.</li>
+          </ui>
         <h1>2.14</h1>
         <ui>
           <li>Software now has official domain on falixnodes.net</li>

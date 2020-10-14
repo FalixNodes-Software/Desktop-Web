@@ -29,23 +29,6 @@
 
 
 
-
-.rightSide a::before {
-  content: "Now Available for iOS";
-  position: absolute;
-  color: white;
-  bottom: 15%;
-  z-index: 5;
-  left: 50%;
-  transform: translate(-50%);
-  font-size: 20px;
-  background: #353535;
-  padding: 10px 30px;
-  border-radius: 10px;
-}
-
-
-
 body, html {
   height: 100%;
   margin: 0;
@@ -73,7 +56,7 @@ button.tablink {
     color: white;
     border: none;
     padding: 6.9px 20px;
-    border-radius: 7px 7px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
     margin-top: 4px;
     transition: background 0.3s;
 }
@@ -135,11 +118,6 @@ webview {
   }
 }
 
-#Client {background-color: #415CF3;}
-#ControlPanel {background-color: #6769E0;}
-#Status {background-color: #57B470 !important;}
-#About {background-color: #6769E0;}
-
 button#defaultOpen {
   margin-left: 8px;
 }
@@ -179,7 +157,7 @@ a#UpdateButton {
   right: 0px;
   top: 0px;
   width: 50%;
-  display: inline-grid;
+  height: 100%;
 }
 
 p#version {
@@ -188,17 +166,6 @@ p#version {
   padding: 8px 13px;
   border-radius: 5px;
   font-weight: bold;
-}
-
-.rightSide a {
-  color: black;
-  background: white;
-  width: 380px;
-  text-align: center;
-  padding: 15px 0px;
-  margin: 5px 0px;
-  border-radius: 5px;
-  text-decoration: none;
 }
 
 div#Status webview {
@@ -363,6 +330,12 @@ video {
   box-shadow: 0px 5px 8px 0px rgb(0 0 0 / 34%);
 }
 
+.new img {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+
 div#dialog1 {
   border-radius: 7px;
   padding: 0px;
@@ -397,15 +370,6 @@ button.no:hover::before {
   padding: 4px 10px;
   border-radius: 5px;
   font-weight: 100;
-}
-.rightSide img {
-  position: fixed;
-  right: 0px;
-  transform: translate(0px, -50%);
-  top: 50%;
-  width: 50% !important;
-  height: 50%;
-  object-fit: contain;
 }
 
 div#VPS::before {
@@ -492,11 +456,82 @@ i.fa.fa-circle-o-notch {
 @keyframes splash {
   0% {
       opacity: 1;
+      pointer-events: all;
   }
   90% {
       opacity: 1;
+      pointer-events: all;
   }
   100% {
       opacity: 0;
+      pointer-events: all;
   }
+}
+
+
+
+.warning2 h1 {
+  background: #ff6464;
+  position: absolute;
+  margin-top: -15px;
+  margin-left: -17px;
+  padding: 3px 12px 3px 17px;
+  width: calc(100% - 0px);
+  border-radius: 10px 10px 0px 0px;
+  font-size: 13px;
+}
+.warning2 {
+  background: red;
+  position: fixed;
+  top: 70px;
+  right: 25px;
+  border-radius: 10px;
+  font-size: 12px;
+  width: 290px;
+  padding: 4px 17px;
+  pointer-events: none;
+  height: 70px;
+}
+
+input:checked {
+  border-radius: 50px !important;
+}
+
+
+
+button#toggles:hover {
+  background: #303030;
+  cursor: pointer;
+}
+button#toggles {
+  background: #424242;
+  height: 14px;
+  width: 14px;
+  border-radius: 50px;
+  border: none;
+  margin-right: 10px;
+}
+button#toggles:focus {
+  outline: none;
+}
+
+
+
+
+
+
+
+.didyouknow webview {
+  height: 40px;
+  width: 500px;
+}
+.didyouknow h1 {
+  font-size: 14px;
+  border-bottom: 1px #5a5a5a solid;
+  margin-top: -70px;
+}
+.didyouknow {
+  position: absolute;
+  top: 50%;
+  margin-top: 34px;
 }
